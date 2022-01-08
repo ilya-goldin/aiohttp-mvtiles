@@ -10,5 +10,3 @@ TEMPLATES_DIR = path.join("apps", "frontend", "templates")
 
 STATIC_DIR = path.join("apps", "frontend", "static")
 STATIC_URL = "/static"
-
-CORS_ALLOW_ORIGINS = ["https://frontend.com"]

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="{{ title }}">
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="">
+    <meta name="author" content="Ilya Goldin">
+    <link href="{{ static('css/style.css') }}" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="{{ static('img/favicon.ico') }}" />
+    <title>{{ title }}</title>
+</head>
+<body  tabindex="-1">
+<div id="root" class="app" role="application" aria-label="{{ title }}" aria-disabled="true" >
+    <header>{{title}}</header>
+    <main id="map"></main>
+</div>
+<noscript style="display:grid;place-items:center;width:100vw;height:100vh;background-color:rgb(37,37,37);color:white;text-align:center;">
+    You need to enable JavaScript to run this app.
+</noscript>
+</body>
+<script src="{{ static('js/map.js') }}" ></script>
+</html>

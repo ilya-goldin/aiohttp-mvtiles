@@ -1,14 +1,23 @@
 import asyncpg
+from typing import ByteString
 
 
 class Database:
     def __init__(self, url):
+        """
+        Initialize the database
+
+        :param str url: Database URL
+        """
         self.url = url
         self._cursor = None
         self._connection_pool = None
         self.con = None
 
     async def connect(self):
+        """
+        Create a connection to the database
+        """
         if not self._connection_pool:
             try:
                 self._connection_pool = await asyncpg.create_pool(
@@ -22,6 +31,13 @@ class Database:
                 print(e)
 
     async def fetch(self, query):
+        """
+        SQL query execution
+
+        :param str query: SQL query string
+        :return: Query result
+        :rtype: ByteString
+        """
         if not self._connection_pool:
             await self.connect()
         else:
@@ -35,6 +51,10 @@ class Database:
                 await self._connection_pool.release(con)
 
     async def close(self):
+        """
+        Close a connection to the database
+
+        """
         if not self._connection_pool:
             try:
                 await self._connection_pool.close()

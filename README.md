@@ -68,7 +68,8 @@ CLIP = False
 #### Get tile by [XYZ](https://en.wikipedia.org/wiki/Tiled_web_map#Tile_numbering_schemes) params
 
 ```http
-  GET /api/v1/tile/{z}/{x}/{y} or /api/v1/t.mvt?tile={z}/{x}/{y}
+  GET /api/v1/tile/{z}/{x}/{y}
+  GET /api/v1/t.mvt?tile={z}/{x}/{y}
 ```
 
 | Parameter | Type  | Description                |

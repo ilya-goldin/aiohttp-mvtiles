@@ -1,16 +1,23 @@
 if (!maplibregl.supported()) {
-    alert('Your browser does not support Mapbox GL');
+    alert("Your browser does not support Mapbox GL");
 }
 
 let map = new maplibregl.Map({
-    container: 'map',
-    hash: true,
-    style: 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
-    center: [19, 47.8],
-    zoom: 3.75,
-    pitch: 0,
-})
-
-map.on('load', function () {
-    map.resize()
+    container: "map",
+    center: [0, 0],
+    zoom: 1,
+    style: {
+        version: 8,
+        name: "Main Layer",
+    sources: {
+        "aiohttp-mvtiles": {
+            type: "vector",
+            tiles: [
+                "http://localhost:8080/api/v1/t.mvt?tile={z}/{x}/{y}",
+                "http://localhost:8080/api/v1/tile/{z}/{x}/{y}" // Or like this
+                ],
+        }
+    },
+    layers: []
+    },
 })
